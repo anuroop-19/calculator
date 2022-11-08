@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .head{
+    position: relative;
+    left:39vw;
+}
+.appear{
+    position:relative;
+    left:39vw;
+    width:222px;
+}
+.numbers{
+    position: relative;
+    top: 2vh;
+    left:40vw;
+}
+.b{
+    height: 50px;
+    width: 50px;
+}
+    </style>
+    <title>Document</title>
+</head>
+<body>
+   <h1 class="head">CALCULATOR</h1>
+   <div class="calc">
+    <div class="txt">
+        <input type="text" class="appear">
+    </div>
+    <div class="numbers">
+        <div class="frow">
+            <button class="b">7</button>
+            <button class="b">8</button>
+            <button class="b">9</button>
+            <button class="b">*</button>
+        </div>
+        <div class="srow">
+            <button class="b">4</button>
+            <button class="b">5</button>
+            <button class="b">6</button>
+            <button class="b">-</button>
+        </div>
+        <div class="trow">
+        <button class="b">1</button>
+        <button class="b">2</button>
+        <button class="b">3</button>
+        <button class="b">+</button>
+        </div>
+        <div class="frow">
+            <button class="b">CE</button>
+            <button class="b">0</button>
+            <button class="b">/</button>
+            <button class="b">=</button>
+        </div>
+   </div>
+   </div>
+</body>
+<script>
+    let dd=document.querySelectorAll(".b");
+let l=document.querySelector("input");
+let s="";
+let d=Array.from(dd);
+console.log(d);
+for(let i=0;i<d.length;i++)
+{
+    console.log(d[i].innerHTML);
+    d[i].addEventListener("click",function(){
+        if(d[i].innerHTML=="CE")
+        {
+            l.value="";
+            s="";
+        }
+        else if(d[i].innerHTML=="=")
+        {
+           if(s!="")
+           {
+            l.value=eval(s);
+           }
+           else
+           {
+            l.value="";
+           }
+        }
+        else
+        {
+            s=s+d[i].innerHTML;
+            l.value=s;
+        }
+    })
+}
+
+</script>
+</html>
